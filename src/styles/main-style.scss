@@ -1,0 +1,112 @@
+@import './themes.scss';
+
+// Main component styles 
+
+html, body {
+  margin: 0;
+  padding: 0;
+  // background-color: $col-prim;
+  width: 100%;
+}
+
+html {
+  overflow-y: hidden;
+}
+
+body {
+  position: fixed;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+
+  /* Disable user selection of text for everything */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.allow-text-selection, input, select, input:before, input:after, select:before, select:after, textarea, textarea:before, textarea:after {
+  -webkit-touch-callout: text;
+    -webkit-user-select: text;
+     -khtml-user-select: text;
+       -moz-user-select: text;
+        -ms-user-select: text;
+            user-select: text;
+}
+
+a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.app {
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+}
+
+/* Page slide animations */
+@keyframes page-slide-back {
+  from {transform: translateX(-33%);}
+  to {transform: translateX(0%);}
+}
+@keyframes page-slide {
+  from {transform: translateX(33%);}
+  to {transform: translateX(0%);}
+}
+/* App css structure, for page sliding */
+#app {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 100%;
+  overflow-y: hidden;
+  background-color: var(--page-bg-color);
+  #page-slider {
+    position: fixed;
+    left: -100%;
+    right: -100%;
+    top: 0;
+    height: 100%;
+    // animation-duration: $page-slide-duration;
+    overflow-y: hidden;
+    .page {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      overflow-y: hidden;
+      &#prev-page {
+        left: 0;
+        right: 66.666%;
+      }
+      &#curr-page {
+        left: 33.333%;
+        right: 33.333%;
+      }
+      &#next-page {
+        left: 66.666%;
+        right: 0;
+      }
+    }
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
