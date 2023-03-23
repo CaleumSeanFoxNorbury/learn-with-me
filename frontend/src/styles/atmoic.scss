@@ -1,2 +1,7 @@
 // size
 
+// setting width by value, this value can be any acceptable type like `px` or `%`
+.width#{$width} { width: $width !important; }
+
+// setting height by value, this value can be any acceptable type like `px` or `%`
+.height#{$height} { height: $height !important; }
